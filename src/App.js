@@ -10,6 +10,9 @@ import {
 } from "react-router-dom";
 import "./App.css";
 
+const BACKEND_URL = "https://stock-market-portfolio-6id0.onrender.com";
+
+
 // Helper function to get users from localStorage or initialize with admin
 const getUsers = () => {
   const storedUsers = localStorage.getItem('users');
@@ -185,7 +188,7 @@ const Stocks = ({ addToWatchlist }) => {
 
   useEffect(() => {
     // Fetch stock data from the backend
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/stocks`)
+    fetch(`${BACKEND_URL}/api/stocks`)
       .then((res) => res.json())
       .then((data) => setStocks(data))
       .catch((error) => console.error("Error fetching stocks:", error));
@@ -263,7 +266,7 @@ function App() {
 
 
   const addToWatchlist = useCallback((stock) => {
-    fetch("http://localhost:5000/api/watchlist", {
+    fetch(`${BACKEND_URL}/api/watchlist`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
