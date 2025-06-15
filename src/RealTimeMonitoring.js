@@ -102,8 +102,7 @@ const RealTimeMonitoring = () => {
         !loading && !error && <p>No real-time US stock data available. Check your FMP API key and network.</p>
       )}
       <p className="note">
-        * This data is typically 15-20 minutes delayed on free/basic FMP plans.
-        Indian stock data usually requires a paid FMP subscription.
+        * This data is typically 15-20 minutes delayed
       </p>
     </div>
   );
